@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Ingrediente } from '../ingrediente';
+import { IngredienteService } from '../ingrediente.service';
+
 @Component({
   selector: 'app-lista-ingredientes',
   templateUrl: './lista-ingredientes.component.html',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListaIngredientesComponent implements OnInit {
 
-  constructor() { }
+  ingredientes : Ingrediente[] 
+  
+  constructor(private ingredienteService : IngredienteService) {
+    this.ingredientes = this.ingredienteService.getIngredientes()
+   }
 
   ngOnInit(): void {
+    
   }
 
 }

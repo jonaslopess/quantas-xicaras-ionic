@@ -1,9 +1,7 @@
 <h3>Lista de Ingredientes</h3>
 <div class="list-group">
-    <a class="list-group-item">
-        <p>teste</p>
-    </a>
-    <a class="list-group-item">
-        <p>teste2</p>
+    <a *ngFor="let ingrediente of ingredientes; let i = index" class="list-group-item"
+    [routerLink]="['/edita-ingrediente',i]">
+        <p>{{ingrediente.nome}}</p>
     </a>
 </div>

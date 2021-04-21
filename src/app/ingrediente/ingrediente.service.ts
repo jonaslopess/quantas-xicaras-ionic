@@ -29,8 +29,9 @@ export class IngredienteService {
     this.ingredientes.push(new Ingrediente(nome,regra_conversao))
   }
 
-  editIngrediente(i : number, ingrediente : Ingrediente){
-    this.ingredientes[i] = ingrediente;
+  editIngrediente(i : number, nome: string, regra_conversao: number){
+    this.ingredientes[i].nome = nome;
+    this.ingredientes[i].regra_conversao = regra_conversao;
   }
 
 }
