@@ -10,6 +10,7 @@ import { ListaIngredientesComponent } from './ingrediente/lista-ingredientes/lis
 import { NovoIngredienteComponent } from './ingrediente/novo-ingrediente/novo-ingrediente.component';
 import { EditaIngredienteComponent } from './ingrediente/edita-ingrediente/edita-ingrediente.component';
 import { IngredienteService } from './ingrediente/ingrediente.service';
+import { IonicModule } from '@ionic/angular';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { IngredienteService } from './ingrediente/ingrediente.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    IonicModule.forRoot()
   ],
   providers: [IngredienteService],
   bootstrap: [AppComponent]
