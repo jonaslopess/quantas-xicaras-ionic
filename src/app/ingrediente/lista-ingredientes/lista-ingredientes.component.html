@@ -1,7 +1,27 @@
-<h3>Lista de Ingredientes</h3>
-<div class="list-group">
-    <a *ngFor="let ingrediente of ingredientes; let i = index" class="list-group-item"
-    [routerLink]="['/edita-ingrediente',i]">
-        <p>{{ingrediente.nome}}</p>
-    </a>
+<div class="ion-page" id="main-content">
+    <ion-header>
+        <ion-toolbar>
+            <ion-buttons slot="start">
+                <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+            <ion-title>Quantas Xícaras?</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <ion-text class="ion-text-center">
+            <h3>Lista de Ingredientes</h3>
+        </ion-text>
+        <ion-list>
+            <ion-item *ngFor="let ingrediente of ingredientes; let i = index" 
+            [routerLink]="['/edita-ingrediente',i]">
+                <ion-avatar slot="start">
+                    <img [src]="ingrediente.img">
+                </ion-avatar>
+                <ion-label>
+                    <h2>{{ingrediente.nome}}</h2>
+                    <h3>{{ingrediente.regra_conversao}} g/ml</h3>
+                </ion-label>
+            </ion-item>
+        </ion-list>
+    </ion-content>
 </div>

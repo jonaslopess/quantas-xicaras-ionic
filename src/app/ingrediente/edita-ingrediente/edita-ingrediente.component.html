@@ -1,22 +1,55 @@
-<div>
-    <h3>Detalhes do Ingrediente</h3>
+<div class="ion-page">
+    <ion-header>
+        <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-toggle>
+            <ion-button>
+                <ion-icon slot="icon-only" name="menu"></ion-icon>
+            </ion-button>
+            </ion-menu-toggle>
+        </ion-buttons>
+        <ion-title>Quantas Xícaras?</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content fullscreen class='ion-padding'>
+        <ion-text class="ion-padding">
+            <h1>Editar Ingrediente</h1>
+        </ion-text>
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+            <ion-list>
+            
+                
+                
+                <ion-item>
+                    <ion-label for="nome">Nome:</ion-label>
+                    <ion-input type="text" id="nome" name="nome" 
+                    [(ngModel)]="ingrediente.nome" required>
+                    </ion-input>
+                </ion-item>
+
+                <ion-item>
+
+                    <ion-label for="regra">Regra de Conversão (g/ml): </ion-label>
+                    <ion-input type="number" step="0.01" id="regra" name="regra" 
+                    [(ngModel)]="ingrediente.regra_conversao" required></ion-input>
+
+                </ion-item>
+
+                <ion-item>
+                    <ion-avatar slot="start">
+                        <img [src]="ingrediente.img">
+                    </ion-avatar>
+
+                    <ion-label for="regra">Imagem: </ion-label>
+                    <ion-input type="url" id="img" name="img" 
+                    [(ngModel)]="ingrediente.img"></ion-input>
+
+                </ion-item>
+
+                <ion-button color='dark' type="submit" expand="block" fill="outline">
+                    Salvar
+                </ion-button> 
+            </ion-list>
+        </form>
+    </ion-content>
 </div>
-<form #f="ngForm" (ngSubmit)="onSubmit(f)">
-    
-    <div class="form-group">
-        <label for="nome">Nome: </label>
-        <input class="form-control" type="text" id="nome" name="nome" 
-        [(ngModel)]="ingrediente.nome" required>
-    </div>
-
-    <div class="form-group">
-        <label for="regra">Regra de Conversão: </label>
-        <input class="form-control" type="number" step="0.01" id="regra" 
-        [(ngModel)]="ingrediente.regra_conversao" name="regra" required placeholder="Peso em gramas de 1ml do ingrediente">
-    </div>
-
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary">Inserir</button>
-    </div>  
-
-</form>

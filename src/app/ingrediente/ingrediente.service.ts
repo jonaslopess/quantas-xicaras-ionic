@@ -11,9 +11,9 @@ export class IngredienteService {
 
   constructor() { 
     this.ingredientes = [
-      new Ingrediente("Farinha", 0.5),
-      new Ingrediente("Leite", 1),
-      new Ingrediente("Açúcar", 0.8)
+      new Ingrediente("Farinha", 0.5, "../../../assets/farinha.png"),
+      new Ingrediente("Leite", 1, "../../../assets/leite.png"),
+      new Ingrediente("Açúcar", 0.8, "../../../assets/acucar.png")
     ]
   }
 
@@ -25,13 +25,14 @@ export class IngredienteService {
     return this.ingredientes[i];
   }
 
-  addIngrediente(nome: string, regra_conversao: number){
-    this.ingredientes.push(new Ingrediente(nome,regra_conversao))
+  addIngrediente(nome: string, regra_conversao: number, img: string){
+    this.ingredientes.push(new Ingrediente(nome,regra_conversao, img))
   }
 
-  editIngrediente(i : number, nome: string, regra_conversao: number){
+  editIngrediente(i : number, nome : string, regra_conversao : number, img : string){
     this.ingredientes[i].nome = nome;
     this.ingredientes[i].regra_conversao = regra_conversao;
+    this.ingredientes[i].img = img;
   }
 
 }

@@ -1,26 +1,43 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" routerLink="">Quantas Xícaras?</a>
-  
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="" routerLinkActive="active">
-            Conversor
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/ingredientes" routerLinkActive="active">
-            Lista de Ingredientes
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/novo-ingrediente" routerLinkActive="active">
-            Novo Ingrediente
-          </a>
-        </li>
-      </ul>
-    </div>
-</nav>
-<div class="container">
-    <router-outlet></router-outlet>
-</div>
+<ion-app>
+  <ion-split-pane when='sm' contentId="main-content">
+    <ion-menu contentId="main-content">
+      <ion-header [translucent]="true">
+        <ion-toolbar>
+          <ion-title>Menu</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-list-header>
+            Navegar
+          </ion-list-header>
+          <ion-menu-toggle auto-hide='false'>
+            <ion-item routerLink="" button>
+              <ion-icon slot='start' name='calculator-outline'></ion-icon>
+              <ion-label>
+                Conversor
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle auto-hide='false'>
+            <ion-item routerLink="/ingredientes">
+              <ion-icon slot='start' name="list-outline"></ion-icon>
+              <ion-label>
+                Lista de Ingredientes
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle auto-hide='false'>            
+            <ion-item  routerLink="/novo-ingrediente">
+              <ion-icon slot='start' name="basket-outline"></ion-icon>
+              <ion-label>
+                Novo Ingrediente
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id='main-content'></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

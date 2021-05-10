@@ -1,57 +1,77 @@
+<div class="ion-page">
+    <ion-header>
+        <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-toggle>
+            <ion-button>
+                <ion-icon slot="icon-only" name="menu"></ion-icon>
+            </ion-button>
+            </ion-menu-toggle>
+        </ion-buttons>
+        <ion-title>Quantas Xícaras?</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content fullscreen class='ion-padding'>
+        <ion-text class="ion-text-center">
+            <h1>Conversor de unidades de medidas culinárias</h1>
+        </ion-text>
+        
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+            <ion-list>
+            
+                <ion-item>
+                    <ion-label for="ingrediente">Ingrediente:</ion-label>
+                    <ion-select interface="popover" name="ingrediente" id="ingrediente" ngModel required>
+                        <ion-select-option *ngFor="let ingrediente of ingredientes; let i = index" [value]="i">
+                            {{ingrediente.nome}}
+                        </ion-select-option>
+                    </ion-select>
+                </ion-item>
 
-<div>
-    <h1>Quantas Xícaras?</h1>
-    <h3>Conversor de unidade de medidas culinárias</h3>
+
+
+                <ion-item>
+                    <ion-label for="quantidade_entrada">Quantidade:</ion-label>
+                    <ion-input type="number" id="quantidade_entrada" name="quantidade_entrada" ngModel required></ion-input>
+                </ion-item>
+                
+
+
+                <ion-item>
+                    <ion-label for="unidade_entrada">Unidade de entrada:</ion-label>
+                    <ion-select interface="popover" name="unidade_entrada" id="unidade_entrada" ngModel required>
+                        <ion-select-option *ngFor="let unidade of unidades" 
+                        [value]="unidade.id">
+                            {{unidade.descricao}}
+                        </ion-select-option>
+                    </ion-select>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label for="unidade_saida">Unidade de saída:</ion-label>
+                    <ion-select interface="popover" name="unidade_saida" id="unidade_saida" ngModel required>
+                        <ion-select-option *ngFor="let unidade of unidades" 
+                        [value]="unidade.id">
+                            {{unidade.descricao}}
+                        </ion-select-option>
+                    </ion-select>
+
+                </ion-item>
+
+
+                <ion-button color='dark' type="submit" expand="block" fill="outline">
+                    Converter
+                </ion-button>
+
+
+                
+            </ion-list>
+        </form>
+
+        <ion-text>
+            <ion-label for="quantidade_saida" position="fixed">Valor convertido:</ion-label>
+            <h5 id="quantidade_saida">{{valorConvertido}}</h5>
+        </ion-text>
+
+    </ion-content>
 </div>
-
-<form #f="ngForm" (ngSubmit)="onSubmit(f)">
-    <div class="form-group">
-        <label for="ingrediente">Ingrediente: </label>
-        <select class="form-control form-select" name="ingrediente" id="ingrediente"
-        ngModel required>
-            <option *ngFor="let ingrediente of ingredientes; let i = index" 
-            [value]="i">{{ingrediente.nome}}</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label for="quantidade_entrada">Quantidade: </label>
-        <input class="form-control" type="number" name="quantidade_entrada" 
-        ngModel required>
-    </div>
-
-    <div class="form-group">
-        <label for="unidade_entrada">Unidade de entrada: </label>
-        <select class="form-control form-select" name="unidade_entrada" 
-        ngModel required>
-            <option value="1">gramas</option>
-            <option value="2">mililitros</option>
-            <option value="3">xícaras (240ml)</option>
-            <option value="4">colheres de sopa (15ml)</option>
-            <option value="5">colheres de chá (5ml)</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label for="unidade_saida">Unidade de saída: </label>
-        <select class="form-control form-select" name="unidade_saida"
-        ngModel required>
-            <option value="1">gramas</option>
-            <option value="2">mililitros</option>
-            <option value="3">xícaras (240ml)</option>
-            <option value="4">colheres de sopa (15ml)</option>
-            <option value="5">colheres de chá (5ml)</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary">Converter</button>
-    </div>
-    
-    <div class="form-group">
-        <input class="form-control" type="text" id="quantidade_saida" 
-        [value]="valorConvertido" readonly>
-    </div>
-
-</form>
-

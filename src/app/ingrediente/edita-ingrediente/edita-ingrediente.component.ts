@@ -36,13 +36,11 @@ export class EditaIngredienteComponent implements OnInit {
   }
 
   onSubmit(form:any){
-    let nome : string = ''
-    let regra_conversao : number = 0
-
-    nome = form.value.nome
-    regra_conversao = Number(form.value.regra)
-
-    this.ingredienteService.editIngrediente(this.id,nome,regra_conversao)
+    let nome : string = form.value.nome
+		let regra : number = Number(form.value.regra)
+		let img : string = form.value.img
+		this.ingredienteService.editIngrediente(this.id,nome,regra,img);
+		this.router.navigate(['/ingredientes']);
 
   }
 
