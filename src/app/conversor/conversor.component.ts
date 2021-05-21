@@ -19,8 +19,8 @@ export class ConversorComponent implements OnInit {
 	constructor(
 		private ingredienteService : IngredienteService,
 		private unidadeService : UnidadeService
-	) { 
-		
+	) {
+
 	}
 
 	ngOnInit(): void {

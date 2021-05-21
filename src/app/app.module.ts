@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { Camera } from '@ionic-native/camera/ngx';
+
 import { ConversorComponent } from './conversor/conversor.component';
 import { ListaIngredientesComponent } from './ingrediente/lista-ingredientes/lista-ingredientes.component';
 import { NovoIngredienteComponent } from './ingrediente/novo-ingrediente/novo-ingrediente.component';
@@ -26,7 +28,7 @@ import { IonicModule } from '@ionic/angular';
     FormsModule,
     IonicModule.forRoot()
   ],
-  providers: [IngredienteService],
+  providers: [IngredienteService, Camera],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
